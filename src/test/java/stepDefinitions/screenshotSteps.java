@@ -19,9 +19,9 @@ public class screenshotSteps {
 
     @Given("I launch browser window")
     public void i_launch_browser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","C://Users//divya#1998//Downloads//ChromeOptions//chromedriver-win64//chromedriver-win64/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C://Users//DELL//Documents//chromeDriver//chromedriver-win64/chromedriver.exe");
         ChromeOptions cop = new ChromeOptions();
-        cop.setBinary("C://Users//divya#1998//Downloads//ChromeOptions//chrome-win64//chrome-win64//chrome.exe");
+        cop.setBinary("C://Users//DELL//Documents//chrome//chrome-win64//chrome.exe");
         cop.addArguments("--remote-allow-origins=*");
         driver =new ChromeDriver(cop);
         driver.manage().window().maximize();
@@ -29,7 +29,7 @@ public class screenshotSteps {
     }
     @When("I open Login screen")
     public void i_open_homepage() {
-        driver.get("https://ultimateqa.com/automation");
+        driver.get("https://demoqa.com/");
 //driver.findElement(By.linkText("Login automation")).click();
     }
 
@@ -77,5 +77,17 @@ public class screenshotSteps {
         File destination = new File("Screenshots//webElement.png");
         FileUtils.copyFile(src,destination);
 
+    }
+
+    @And("User click on elements option")
+    public void userClickOnElementsOption() {
+        WebElement element=driver.findElement(By.xpath("//h5[contains(text(),'Elements')]"));
+        element.click();
+    }
+
+    @And("User click on Text box option")
+    public void userClickOnTextBoxOption() {
+        WebElement element=driver.findElement(By.xpath("//span[contains(text(),'Text Box')]"));
+        element.click();
     }
 }

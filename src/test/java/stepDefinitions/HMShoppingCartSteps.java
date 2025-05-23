@@ -1,7 +1,7 @@
 package stepDefinitions;
 
+import Pages.HMHomePageClass;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,24 +13,22 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 
-public class LoginSteps {
-WebDriver driver;
+public class HMShoppingCartSteps {
 
-    @Given("I launch browser")
-    public void i_launch_browser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","C://Users//divya#1998//Downloads//ChromeOptions//chromedriver-win64//chromedriver-win64/chromedriver.exe");
-        ChromeOptions cop = new ChromeOptions();
-        cop.setBinary("C://Users//divya#1998//Downloads//ChromeOptions//chrome-win64//chrome-win64//chrome.exe");
-        cop.addArguments("--remote-allow-origins=*");
-        driver =new ChromeDriver(cop);
-        driver.manage().window().maximize();
+    WebDriver driver = new ChromeDriver();
+    HMHomePageClass hmHomePage = new HMHomePageClass(driver);
 
-   }
-    @When("I open Login page")
-    public void i_open_homepage() {
-        driver.get("https://ultimateqa.com/automation");
-//driver.findElement(By.linkText("Login automation")).click();
-    }
+//    @Given("I launch browser")
+//    public void i_launch_browser() throws InterruptedException {
+//        System.setProperty("webdriver.chrome.driver","C://Users//DELL//Documents//chromeDriver//chromedriver-win64/chromedriver.exe");
+//        ChromeOptions cop = new ChromeOptions();
+//        cop.setBinary("C://Users//DELL//Documents//chrome//chrome-win64//chrome.exe");
+//        cop.addArguments("--remote-allow-origins=*");
+//        driver =new ChromeDriver(cop);
+//        driver.manage().window().maximize();
+//
+//   }
+
     @Then("I verify that logo present")
     public void i_verify_that_logo_present() {
 
@@ -125,11 +123,11 @@ Email.sendKeys("divyad2703@gmail.com");
 WebElement password = driver.findElement(By.id("user[password]"));
 password.sendKeys("User@123");
     }
-    @And("User click on SignInButton")
-    public void clickSignInButton(){
-        WebElement SignInBtn = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
-        SignInBtn.click();
-    }
+//    @And("User click on SignInButton")
+//    public void clickSignInButton(){
+//        WebElement SignInBtn = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
+//        SignInBtn.click();
+//    }
     @And("Invalid error message displayed")
     public void InvalidErrMsg(){
         WebElement InvalidErrMsg = driver.findElement(By.xpath("//li[contains(text(),'Invalid email or password.')]"));
@@ -143,4 +141,18 @@ password.sendKeys("User@123");
         }
     }
 
+    @When("user hover on {string}")
+    public void userHoverOn(String category) {
+hmHomePage.selectCategory(category);
+    }
+
+    @Then("I click on the {string}")
+    public void iClickOnThe(String subOptions) {
+        hmHomePage.selectSubOptions(subOptions);
+    }
+
+    @When("user click on hamburger menu")
+    public void userClickOnHamburgerMenu() {
+         HMHomePageClass.HamBurgerMenu.click();
+    }
 }

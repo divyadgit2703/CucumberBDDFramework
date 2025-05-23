@@ -1,21 +1,22 @@
 Feature: Login
   Background: Login to Home page
     Given I launch browser
-    When I open Login page
+    When User open H&M.com
     Then wait for sometimes
 
-    Scenario Outline: Login Page validation - For Invalid user login
+    Scenario Outline: Add to cart - Add items to the cart and verify they appear correctly
 
-      When user hover on Education dropdown
-      Then wait for sometimes
-      Then I click on the Login page link
-      Then validate label Email and password
-      And User click on SignInButton
-      And Invalid error message displayed
+      When user click on hamburger menu
+      When user hover on "<category>"
+      Then I click on the "<Option>"
+      Then verify whether its taking to selected "<Option>" page
+      And validate whether user able to select "<color>" and "<size>"
+      And validate whether user able to select and add the item into cart
+
 
       Examples:
-        |user name|option|
-        |user1    |example1|
+        |category|Option|color|size|
+        |Ladies    |example1|blue|M |
 
 #    Scenario Outline: Handling dropdown
 #

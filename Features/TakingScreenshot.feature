@@ -3,6 +3,7 @@ Feature: Screenshot
     Given I launch browser window
     When I open Login screen
     Then wait for sometime
+    And User click on elements option
 
   Scenario Outline: Interaction with simple elements page - Take screen shot of full page
 
@@ -14,6 +15,18 @@ Feature: Screenshot
 
 
 
+
     Examples:
       |user name|option|
       |user1    |example1|
+
+    Scenario Outline: Text box implementation - validating labels, entering user data and submission
+
+      And User click on Text box option
+
+
+
+
+      Examples:
+        |user name|option|
+        |user1    |example1|
