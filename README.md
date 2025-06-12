@@ -2,7 +2,7 @@ Test Automation Framework with Cucumber & Selenium
 
 ## 📌 Project Overview
 
-This repository contains a robust test automation framework designed for end-to-end testing of web applications. Utilizing Cucumber for Behavior-Driven Development (BDD) and Selenium WebDriver for browser automation, the framework supports cross-browser testing and integrates seamlessly with Maven for dependency management.
+This repository contains a test automation framework designed for testing web application.Automating Amazon.com e-commerce website. Utilizing Cucumber for Behavior-Driven Development (BDD) and Selenium WebDriver for browser automation, the framework supports cross-browser testing and integrates seamlessly with Maven for dependency management.
 
 ## ⚙️ Technologies Used
 
