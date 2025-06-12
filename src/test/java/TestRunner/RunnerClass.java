@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"Features"},
-        glue = {"stepDefinitions"},
-        dryRun = true
+        features = {"src/test/resources/Features/AmazonLoginTestcases.feature"},
+        glue = {"stepDefinitions","hooks"},
+        tags = "@EmailPhonNoValidation"
 )
 public class RunnerClass {
 }
