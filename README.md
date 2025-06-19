@@ -10,7 +10,7 @@ This repository contains a test automation framework designed for testing web ap
 - **Test Framework:** Cucumber (BDD)
 - **Automation Tools:** Selenium WebDriver
 - **Build Tool:** Maven
-- **Browser Drivers:** ChromeDriver, GeckoDriver
+- **Browser Drivers:** ChromeDriver, edgeDriver
 - **Reporting:** Cucumber HTML Reports
 - **Version Control:** Git
 
@@ -18,16 +18,6 @@ This repository contains a test automation framework designed for testing web ap
 
 - Cross-browser testing support (Chrome, edge)
 - Page Object Model (POM) design pattern
-- Data-driven testing with external data sources
-- Integration with Jenkins for Continuous Integration
-- Extensible and maintainable codebase
+- Data-driven testing with external data sources(in progress will be updated shortly)
+- Integration with Jenkins for Continuous Integration(in progress will be updated shortly)
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-Ensure the following are installed:
-
-- Java 11 or higher
-- Maven 3.6+
-- Git
