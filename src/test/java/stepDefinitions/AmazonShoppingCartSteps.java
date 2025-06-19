@@ -1,22 +1,33 @@
 package stepDefinitions;
 
-import Pages.HMHomePageClass;
+import Pages.AmazonHomePageClass;
+import Pages.AmazonLoginPageClass;
+import base.BaseSteps;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
-public class AmazonShoppingCartSteps {
+public class AmazonShoppingCartSteps extends BaseSteps {
 
-    WebDriver driver = new ChromeDriver();
-    HMHomePageClass hmHomePage = new HMHomePageClass(driver);
+    WebDriver driver;//        this.driver=getDriver();
 
+    public AmazonShoppingCartSteps()
+    {
+        this.driver=getDriver();
+        PageFactory.initElements(driver, AmazonHomePageClass.class);
+
+    }
 //    @Given("I launch browser")
 //    public void i_launch_browser() throws InterruptedException {
 //        System.setProperty("webdriver.chrome.driver","C://Users//DELL//Documents//chromeDriver//chromedriver-win64/chromedriver.exe");
@@ -140,18 +151,36 @@ password.sendKeys("User@123");
         }
     }
 
-    @When("user hover on {string}")
+    @When("user click on {string}")
     public void userHoverOn(String category) {
-hmHomePage.selectCategory(category);
+        AmazonHomePageClass.selectCategoryByVisibleText(category);
     }
 
     @Then("I click on the {string}")
     public void iClickOnThe(String subOptions) {
-        hmHomePage.selectSubOptions(subOptions);
+
+//        AmazonHomePageClass.selectSubOptions(subOptions);
     }
 
-    @When("user click on hamburger menu")
+    @When("user click on Categories dropdown")
     public void userClickOnHamburgerMenu() {
-         HMHomePageClass.HamBurgerMenu.click();
+        AmazonHomePageClass.categoryDropdown.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(115));
+    }
+
+
+    @Then("user search with {string}")
+    public void userSearchWith(String searchContent) {
+        AmazonHomePageClass.searchContent.sendKeys(searchContent);
+AmazonHomePageClass.searchContent.sendKeys(Keys.ENTER);
+    }
+
+
+    @Then("validate all the relavant products of {string} are displayed")
+    public void validateAllTheRelavantProductsOfAreDisplayed(String searchContent) {
+        String actualText = AmazonHomePageClass.getSearchFieldValue();
+        String expectedText = searchContent;
+        System.out.println(actualText);
+        Assert.assertEquals(actualText,expectedText,"search field value mismatch");
     }
 }

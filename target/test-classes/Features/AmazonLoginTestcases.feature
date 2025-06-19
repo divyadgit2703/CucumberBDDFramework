@@ -1,5 +1,5 @@
-Feature: H&M User Login scenarios
-  Background: H&M.com page
+Feature: Amazon User Login scenarios
+  Background: Amazon.com page
     Given User launch browser window
 #    When User open H&M.com
     Then wait for few seconds
@@ -13,9 +13,9 @@ Feature: H&M User Login scenarios
       And User click on continueButton
 
       Examples:
-      |EmailOrPhone|password|
-      |Automation123@gmail.com|Tester@123 |
-      |9836426456|Test@123 |
+      |EmailOrPhone|
+      |Automation123@gmail.com|
+      |9836426456|
 
 
 
@@ -29,8 +29,8 @@ Feature: H&M User Login scenarios
     And User click on signInButton in Login page
     And validate password incorrect message is displayed
         Examples:
-          |Email|password|DOB|
-          |Automation123@gmail.com|Tester@123 |27/03/1998|
+          |Email|password|
+          |Automation123@gmail.com|Tester@123 |
 
 @EmailPhonNoValidation
   Scenario Outline: Email/phonNo and password validation
@@ -43,10 +43,9 @@ Feature: H&M User Login scenarios
     Then User enter emailorPhoneNo "<EmailPhoneNo>"
     And User click on continueButton
     Examples:
-      |EmailPhoneNo|password|DOB|
-      |Automation123.com|Tester@123 |27/03/1998|
-      |6574|Tester@123 |27/03/1998|
-
+      |EmailPhoneNo|
+      |Automation123.com|
+      |6574|
 
 
 

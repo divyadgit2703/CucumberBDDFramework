@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import Pages.HMHomePageClass;
+import Pages.AmazonHomePageClass;
 import Pages.AmazonLoginPageClass;
 import base.BaseSteps;
 import io.cucumber.java.en.And;
@@ -36,7 +36,7 @@ public class AmazonLoginPageSteps extends BaseSteps {
         PageFactory.initElements(driver, AmazonLoginPageClass.class);
         Actions act = new Actions(driver);
         act.moveToElement(AmazonLoginPageClass.signInButton).build().perform();
-        AmazonLoginPageClass.signInBtn.click();
+//        AmazonLoginPageClass.signInBtn.click();
     }
 
     @And("User click on continueButton")
@@ -59,7 +59,7 @@ public class AmazonLoginPageSteps extends BaseSteps {
     public void userClickOnNotAMemberJoinNowButton() {
         PageFactory.initElements(driver, AmazonLoginPageClass.class);
         Actions act = new Actions(driver);
-        act.moveToElement(HMHomePageClass.signInIcon).build().perform();
+        act.moveToElement(AmazonHomePageClass.signInIcon).build().perform();
 //        HMLoginPageClass.notAmemberButtonLink.click();
     }
 
@@ -77,5 +77,10 @@ AmazonLoginPageClass.signInSubmitButton.click();
     @Then("validate Email incorrect message is displayed")
     public void validateEmailIncorrectMessageIsDisplayed() {
 AmazonLoginPageClass.emailIncorrectMsg.isDisplayed();
+    }
+
+    @And("User click on signInBtn")
+    public void userClickOnSignInBtn() {
+        AmazonLoginPageClass.signInBtn.click();
     }
 }
