@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/Features/AmazonLoginTestcases.feature"},
         glue = {"stepDefinitions","hooks"},
         tags = "@EmailPhonNoValidation",
-        plugin = {"pretty", "html:target/cucumber.html"}
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class RunnerClass {
 }
