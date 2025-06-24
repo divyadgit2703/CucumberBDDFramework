@@ -29,21 +29,28 @@ public class AmazonHomePageClass {
     public static WebElement searchContent;
     @FindBy(xpath = "//span[contains(text(),'results for')]/following-sibling::span[contains(@class,'a-text-bold')]")
     public static WebElement searchResult;
+    @FindBy(xpath="//span[contains(text(),\"%s\") and contains(text(),\"%s\")]/../../../following-sibling::div//span[@id=\"price-link\"]/following-sibling::a//span[text()=\"%s\"")
+    public static WebElement ProducttypeAndColor;
+    @FindBy(xpath="(//span[text()='Add to Cart'])[2]")
+    public static WebElement AddToCartButton;
+    @FindBy(xpath="//h1[contains(text(),'Added to cart')]")
+    public static WebElement AddedToCartTextMessage;
+    @FindBy(xpath="//a[@id=\"nav-cart\"]")
+    public static WebElement ShoppingCartIcon;
+
+
 
     public static void selectCategoryByVisibleText(String text) {
         Select select = new Select(categoryOption);
         select.selectByVisibleText(text); // or selectByValue / selectByIndex :contentReference[oaicite:2]{index=2}
     }
 
+
+
 public static String getSearchFieldValue(){
-        return searchResult.getText();
+        return searchResult.getAttribute("innerText").replace("\"","");
 }
 
-//
-//    public AmazonHomePageClass(WebDriver driver) {
-//        this.driver = getDriver();
-//        PageFactory.initElements(driver, this);
-//    }
 
 //    public void selectCategory(String category)
 //    {

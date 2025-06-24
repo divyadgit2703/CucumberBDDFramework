@@ -10,13 +10,15 @@ Feature: Login
       Then wait for few seconds
       When user click on "<category>"
       Then wait for few seconds
-#      Then I click on the "<Option>"
       Then user search with "<searchContent>"
       Then validate all the relavant products of "<searchContent>" are displayed
-
+      Then User select iphone with feature "<producttype>" and "<color>" and "<price>"
+      Then User click on Add to cart button
+      Then Validate Added to cart text is displayed and click on shopping cart Icon
+      Then Vaidate Same product is added to cart by validating "<producttype>" and "<color>"
 
       Examples:
-        |category|searchContent|
-        |Appliances    |iphone|
+        |category|searchContent|producttype|color|price|
+        |Appliances    |iphone|Apple iPhone 15|Black|₹60,200|
 
 

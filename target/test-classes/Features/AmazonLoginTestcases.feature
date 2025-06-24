@@ -36,6 +36,7 @@ Feature: Amazon User Login scenarios
   Scenario Outline: Email/phonNo and password validation
 
     And verify and hover on signInButton
+
     And User click on signInBtn
     Then User enter emailorPhoneNo "<EmailPhoneNo>"
     And User click on continueButton

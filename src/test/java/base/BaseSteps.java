@@ -1,4 +1,5 @@
 package base;
+import Pages.AmazonHomePageClass;
 import config.configLoader;
 import driver.webdriverFactory;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ protected static WebDriver driver;
             webdriverFactory webdriverFactory = new webdriverFactory(configLoader);
             driver =webdriverFactory.createWebdriver();
             driver.manage().window().maximize();
+
 
         }
     }
